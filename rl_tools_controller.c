@@ -66,7 +66,6 @@ static float pos_distance_limit_mellinger;
 static float vel_distance_limit_mellinger;
 static float pos_distance_limit_bresciani;
 static float vel_distance_limit_bresciani;
-static uint8_t mellinger_enable_integrators;
 static uint8_t log_set_motors = 0;
 static float velocity_cmd_multiplier, velocity_cmd_p_term;
 
@@ -232,7 +231,6 @@ void controllerOutOfTreeInit(void){
   vel_distance_limit_mellinger = 1.0f;
   pos_distance_limit_bresciani = 0.2f;
   vel_distance_limit_bresciani = 1.0f;
-  mellinger_enable_integrators = 1;
   velocity_cmd_multiplier = 1;
   velocity_cmd_p_term = 0.0;
 
@@ -379,7 +377,6 @@ void controllerOutOfTree(control_t *control, setpoint_t *setpoint, const sensorD
     figure_eight_progress = 0;
     controllerMellingerFirmwareInit();
     controllerINDIInit();
-    // controllerMellingerFirmwareEnableIntegrators(MELLINGER_ENABLE_INTEGRATORS == 1);
     DEBUG_PRINT("Controller activated\n");
     switch(mode){
       case NORMAL:
@@ -661,7 +658,6 @@ PARAM_ADD(PARAM_FLOAT, vdlfe, &vel_distance_limit_figure_eight)
 PARAM_ADD(PARAM_FLOAT, pdlm,  &pos_distance_limit_mellinger)
 PARAM_ADD(PARAM_FLOAT, vdlm,  &vel_distance_limit_mellinger)
 PARAM_ADD(PARAM_UINT8, orig, &use_orig_controller)
-PARAM_ADD(PARAM_UINT8, mei, &mellinger_enable_integrators)
 PARAM_ADD(PARAM_FLOAT, vcmdm, &velocity_cmd_multiplier)
 PARAM_ADD(PARAM_FLOAT, vcmdp, &velocity_cmd_p_term)
 PARAM_GROUP_STOP(rlt)
