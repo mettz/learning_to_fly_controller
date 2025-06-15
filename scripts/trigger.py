@@ -12,7 +12,7 @@ import threading
 import logging
 
 # logging.basicConfig(level=logging.DEBUG)
-
+LOG_FILE = 'console.log'
 
 def send_hover_packet(cf, height, vx=0, vy=0, yawrate=0):
     pk = CRTPPacket()
@@ -72,11 +72,12 @@ def mode_hover_learned(cf, args):
         send_learned_policy_packet(cf)
 
 def set_param(cf, name, target):
+    time.sleep(1.0)
     while abs(float(cf.param.get_value(name)) - float(target)) > 1e-5:
-        time.sleep(0.1)
+        time.sleep(1.0)
         cf.param.set_value(name, target)
-        time.sleep(0.1)
-    time.sleep(0.1)
+        time.sleep(1.0)
+    time.sleep(1.0)
     print(f"Parameter {name} is {cf.param.get_value(name)} now")
 
 
@@ -146,14 +147,17 @@ def mode_takeoff_and_switch(cf, args):
         else:
             send_learned_policy_packet(cf)
 
+def console_callback(text: str):
+    with open(LOG_FILE, 'a') as f:
+        f.write(text)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     default_uri = 'radio://0/88/2M/E7E7E7E7EF'
     parser.add_argument('--uri', default=default_uri)
-    parser.add_argument('--height', default=0.2, type=float)
-    parser.add_argument('--mode', default='hover_learned', choices=['hover_learned', 'hover_original', 'takeoff_and_switch', 'trajectory_tracking'])
-    parser.add_argument('--trajectory-scale', default=1, type=float, help="Scale of the trajectory")
+    parser.add_argument('--height', default=0.5, type=float)
+    parser.add_argument('--mode', default='hover_original', choices=['hover_learned', 'hover_original', 'takeoff_and_switch', 'trajectory_tracking'])
+    parser.add_argument('--trajectory-scale', default=0.3, type=float, help="Scale of the trajectory")
     parser.add_argument('--trajectory-interval', default=5.5, type=float, help="Interval of the trajectory")
     parser.add_argument('--transition-timeout', default=3, type=float, help="Time after takeoff with the original controller after which the learned controller is used for trajectory tracking")
 
@@ -161,7 +165,14 @@ if __name__ == '__main__':
     uri = uri_helper.uri_from_env(default=default_uri)
     cflib.crtp.init_drivers()
 
-    with SyncCrazyflie(uri, cf=Crazyflie(rw_cache='./build/cache')) as scf:
+    cf = Crazyflie(rw_cache='./build/cache')
+
+    open(LOG_FILE, 'w').close()
+
+    cf.console.receivedChar.add_callback(console_callback)
+
+    with SyncCrazyflie(uri, cf=cf) as scf:
+        time.sleep(5.0)
         scf.cf.platform.send_arming_request(True)
         time.sleep(1.0)
 
