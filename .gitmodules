@@ -3,4 +3,4 @@
 	url = https://github.com/rl-tools/rl-tools.git
 [submodule "external/crazyflie-firmware"]
 	path = external/crazyflie-firmware
-	url = git@github.com:mettz/crazyflie-firmware.git
+	url = https://github.com/mettz/crazyflie-firmware.git
