@@ -360,46 +360,46 @@
   ],
   "environment": {
     "generated_model": {
-      "generated_time": "2025-07-06T22:04:11+0200",
+      "generated_time": "2025-07-08T00:36:00+0200",
       "model_files": [
         {
           "name": "network_data.h",
-          "signature": "0xb1293a66a87caec6eee1d9ceef28e4bb"
+          "signature": "0x2e52c412b17545d658bc0e383b180bfd"
         },
         {
           "name": "network_data.c",
-          "signature": "0x4c97712e9b58ade98a0cef8451365e8a"
+          "signature": "0x77026d1e7efba0db6c426e8fe011d052"
         },
         {
           "name": "network.h",
-          "signature": "0x6eee3f3337fe631d34594d35732b255d"
+          "signature": "0xa96692f1aa9f49411d5ec83841a5da86"
         },
         {
           "name": "network.c",
-          "signature": "0x4573d7ee6d62b47eef706e214fe1b8bf"
+          "signature": "0x2dc5b850300859114b68f7604c10ec6b"
         },
         {
           "name": "network_details.h",
-          "signature": "0x524dfa9ca6120b77ef88c1a756004e0e"
+          "signature": "0x50c55df6ece4c4449c56efbd60a08d82"
         }
       ],
       "name": "network"
     },
-    "network_signature": "0x9e04203a59e86e61",
+    "network_signature": "0xda21a544d6b071e1",
     "test_name": "",
     "tools": [
       {
-        "arguments": "generate -m .\\policies\\isaacflie.onnx -o .\\policies\\networks\\isaacflie --target stm32f4 --c-api st-ai --no-workspace",
+        "arguments": "generate -m .\\policies\\isaacflie-noise.onnx -o .\\policies\\networks\\isaacflie-noise --target stm32f4 --c-api st-ai --no-workspace",
         "environment": [],
         "input_model": {
           "model_files": [
             {
-              "name": "isaacflie.onnx",
-              "signature": "0xbe26c1ea17eff7ecf047d4afe3c452d7"
+              "name": "isaacflie-noise.onnx",
+              "signature": "0x14990f19b0b149f5aa73127785d7fc0a"
             }
           ],
           "n_params": 13828,
-          "name": "isaacflie",
+          "name": "isaacflienoise",
           "size": 55312,
           "type": "onnx"
         },
@@ -486,7 +486,7 @@
       "inputs": [
         123
       ],
-      "name": "isaacflie",
+      "name": "isaacflienoise",
       "nodes": [
         {
           "attributes": {
