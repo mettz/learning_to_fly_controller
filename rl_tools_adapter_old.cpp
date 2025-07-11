@@ -8,6 +8,10 @@
 
 #include "data/actor.h"
 
+extern "C" {
+    #include "debug.h"
+};
+
 #define RL_TOOLS_CONTROL_STATE_ROTATION_MATRIX
 // #define RL_TOOLS_DISABLE_TEST
 #define RL_TOOLS_ACTION_HISTORY
@@ -115,6 +119,19 @@ void rl_tools_control(float* state, float* actions){
     }
 #endif
     rlt::MatrixDynamic<rlt::matrix::Specification<T, TI, 1, ACTOR_TYPE::SPEC::OUTPUT_DIM, rlt::matrix::layouts::RowMajorAlignment<TI, 1>>> output = {(T*)actions};
+
+    if (controller_tick % 100 == 0) {
+      DEBUG_PRINT(
+          "state: %.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+          rlt::get(input, 0, 0), rlt::get(input, 0, 1), rlt::get(input, 0, 2),
+          rlt::get(input, 0, 3), rlt::get(input, 0, 4), rlt::get(input, 0, 5),
+          rlt::get(input, 0, 6), rlt::get(input, 0, 7), rlt::get(input, 0, 8),
+          rlt::get(input, 0, 9), rlt::get(input, 0, 10), rlt::get(input, 0, 11),
+          rlt::get(input, 0, 12), rlt::get(input, 0, 13),
+          rlt::get(input, 0, 14), rlt::get(input, 0, 15),
+          rlt::get(input, 0, 16), rlt::get(input, 0, 17));
+    }
+
     rlt::evaluate(device, rlt::checkpoint::actor::model, input, output, buffers);
 #ifdef RL_TOOLS_ACTION_HISTORY
     int substep = controller_tick % CONTROL_FREQUENCY_MULTIPLE;

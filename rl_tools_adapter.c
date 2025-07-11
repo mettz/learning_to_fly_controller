@@ -95,6 +95,19 @@ void rl_tools_control(float *state, float *actions) {
   input[16] = state[11];
   input[17] = state[12];
 
+  if (controller_tick % 100 == 0) {
+    DEBUG_PRINT(
+        "state: "
+        "%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,"
+        "%.6f,%.6f,%.6f,%.6f\n",
+        input[0], input[1], input[2],
+        input[3], input[4], input[5],
+        input[6], input[7], input[8],
+        input[9], input[10], input[11],
+        input[12], input[13], input[14],
+        input[15], input[16], input[17]);
+  }
+
   // 6. Add action history (starting from index 18)
   int offset = 18;
   for (int step = 0; step < ACTION_HISTORY_LENGTH; ++step)

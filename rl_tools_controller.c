@@ -307,13 +307,13 @@ static inline void every_1000ms(){
   DEBUG_PRINT("rpy: %5.2f, %5.2f, %5.2f\n", attitude_rpy[0], attitude_rpy[1], attitude_rpy[2]);
 #endif
 
-  DEBUG_PRINT("Last setpoint: x disposition/mode %f/%f/%d\n", last_setpoint.position.x, last_setpoint.velocity.x, last_setpoint.mode.x);
-  DEBUG_PRINT("Last setpoint: y disposition/mode %f/%f/%d\n", last_setpoint.position.y, last_setpoint.velocity.y, last_setpoint.mode.y);
-  DEBUG_PRINT("Last setpoint: z disposition/mode %f/%f/%d\n", last_setpoint.position.z, last_setpoint.velocity.z, last_setpoint.mode.z);
+  // DEBUG_PRINT("Last setpoint: x disposition/mode %f/%f/%d\n", last_setpoint.position.x, last_setpoint.velocity.x, last_setpoint.mode.x);
+  // DEBUG_PRINT("Last setpoint: y disposition/mode %f/%f/%d\n", last_setpoint.position.y, last_setpoint.velocity.y, last_setpoint.mode.y);
+  // DEBUG_PRINT("Last setpoint: z disposition/mode %f/%f/%d\n", last_setpoint.position.z, last_setpoint.velocity.z, last_setpoint.mode.z);
 }
 
 static inline void every_10000ms(){
-  DEBUG_PRINT("control invocation interval %f\n", (double)control_invocation_interval);
+  // DEBUG_PRINT("control invocation interval %f\n", (double)control_invocation_interval);
 }
 
 static inline void trigger_every(uint64_t controller_tick){
@@ -529,13 +529,14 @@ void controllerOutOfTree(control_t *control, setpoint_t *setpoint, const sensorD
       }
       int64_t after = usecTimestamp();
       if (tick % (CONTROL_INTERVAL_MS * 10000) == 0){
-        DEBUG_PRINT("rl_tools_control took %lldus\n", after - before);
+        // DEBUG_PRINT("rl_tools_control took %lldus\n", after - before);
       }
     }
+    if (tick % 100 == 0){
+      DEBUG_PRINT("actions: %.6f,%.6f,%.6f,%.6f\n", action_output[0],
+                  action_output[1], action_output[2], action_output[3]);
+    }
     for(uint8_t i=0; i<4; i++){
-      if (tick % (CONTROL_INTERVAL_MS * 1000) == 0){
-        DEBUG_PRINT("action_output[%d]: %f\n", i, action_output[i]);
-      }
       float a_pp = (action_output[i] + 1)/2;
       float des_rpm = (MAX_RPM - MIN_RPM) * a_pp + MIN_RPM;
       float des_percentage = des_rpm / MAX_RPM;

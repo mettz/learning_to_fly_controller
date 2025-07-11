@@ -11,3 +11,4 @@ ablation_data*
 .venv
 .direnv
 *.log
+!logs/**
