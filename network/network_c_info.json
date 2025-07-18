@@ -360,51 +360,51 @@
   ],
   "environment": {
     "generated_model": {
-      "generated_time": "2025-07-08T00:36:00+0200",
+      "generated_time": "2025-07-18T01:37:33+0200",
       "model_files": [
         {
           "name": "network_data.h",
-          "signature": "0x2e52c412b17545d658bc0e383b180bfd"
+          "signature": "0xac290f5c244da586b68ca35ad49e6332"
         },
         {
           "name": "network_data.c",
-          "signature": "0x77026d1e7efba0db6c426e8fe011d052"
+          "signature": "0x15eb6ff1729283ed4ab44a73fa0a6e9e"
         },
         {
           "name": "network.h",
-          "signature": "0xa96692f1aa9f49411d5ec83841a5da86"
+          "signature": "0x88d4f2fcc76005d3580f27570231bfbe"
         },
         {
           "name": "network.c",
-          "signature": "0x2dc5b850300859114b68f7604c10ec6b"
+          "signature": "0x8e67dc371cf7245281994e773f368076"
         },
         {
           "name": "network_details.h",
-          "signature": "0x50c55df6ece4c4449c56efbd60a08d82"
+          "signature": "0x790a5d5043838f44df1b9e171a3f94bf"
         }
       ],
       "name": "network"
     },
-    "network_signature": "0xda21a544d6b071e1",
+    "network_signature": "0x4104e6a35dcbe6d8",
     "test_name": "",
     "tools": [
       {
-        "arguments": "generate -m .\\policies\\isaacflie-noise.onnx -o .\\policies\\networks\\isaacflie-noise --target stm32f4 --c-api st-ai --no-workspace",
+        "arguments": "generate -m policies/isaacflie-curriculum-fixed.onnx -o policies/networks/isaacflie-curriculum-fixed --target stm32f4 --c-api st-ai --no-workspace",
         "environment": [],
         "input_model": {
           "model_files": [
             {
-              "name": "isaacflie-noise.onnx",
-              "signature": "0x14990f19b0b149f5aa73127785d7fc0a"
+              "name": "isaacflie-curriculum-fixed.onnx",
+              "signature": "0xc72d250e077d003342edcb351a8ce42a"
             }
           ],
           "n_params": 13828,
-          "name": "isaacflienoise",
+          "name": "isaacfliecurriculumfixed",
           "size": 55312,
           "type": "onnx"
         },
         "name": "ST.EdgeAI.Core",
-        "version": "2.1.0-20194 329b0e98d"
+        "version": "2.2.0-20266 2adc00962"
       }
     ]
   },
@@ -486,7 +486,7 @@
       "inputs": [
         123
       ],
-      "name": "isaacflienoise",
+      "name": "isaacfliecurriculumfixed",
       "nodes": [
         {
           "attributes": {
@@ -517,8 +517,7 @@
         },
         {
           "attributes": {
-            "nonlinearity": "tanh",
-            "with_batch_size": "False"
+            "nonlinearity": "tanh"
           },
           "description": "Nonlinearity",
           "id": 8,
@@ -569,8 +568,7 @@
         },
         {
           "attributes": {
-            "nonlinearity": "tanh",
-            "with_batch_size": "False"
+            "nonlinearity": "tanh"
           },
           "description": "Nonlinearity",
           "id": 10,
@@ -621,8 +619,7 @@
         },
         {
           "attributes": {
-            "nonlinearity": "tanh",
-            "with_batch_size": "False"
+            "nonlinearity": "tanh"
           },
           "description": "Nonlinearity",
           "id": 12,
@@ -699,12 +696,12 @@
       0,
       0
     ],
-    "kernel_flash": null,
-    "kernel_ram": null,
-    "series": "generic",
-    "toolchain": null,
-    "toolchain_flash": null,
-    "toolchain_ram": null,
+    "kernel_flash": 2846,
+    "kernel_ram": 0,
+    "series": "stm32f4",
+    "toolchain": "arm-none-eabi-gcc (Arch Repository) 14.2.0",
+    "toolchain_flash": 972,
+    "toolchain_ram": 0,
     "weights": 55312
   },
   "memory_pools": [

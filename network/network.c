@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    network.c
   * @author  AST Embedded Analytics Research Platform
-  * @date    2025-07-08T00:36:00+0200
+  * @date    2025-07-18T01:37:33+0200
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -25,9 +25,9 @@
 #include "network_data.h"
 #include "stai_events.h"
 
-#include "lite_operators.h"
-
 #include "ai_lite_inspect.h"
+
+#include "lite_operators.h"
 /*****************************************************************************/
 #define STAI_INTERNAL_API_MAJOR               (1)
 #define STAI_INTERNAL_API_MINOR               (0)
@@ -152,8 +152,8 @@
 
 
 /*****************************************************************************/
-#define _STAI_NETWORK_MODEL_SIGNATURE     "0x14990f19b0b149f5aa73127785d7fc0a"
-#define _STAI_NETWORK_DATETIME            "2025-07-08T00:36:00+0200"
+#define _STAI_NETWORK_MODEL_SIGNATURE     "0xc72d250e077d003342edcb351a8ce42a"
+#define _STAI_NETWORK_DATETIME            "2025-07-18T01:37:33+0200"
 #define _STAI_NETWORK_COMPILE_DATETIME    __DATE__ " " __TIME__
 
 #define _STAI_CONTEXT_ALIGNMENT        (STAI_NETWORK_CONTEXT_ALIGNMENT)
@@ -172,8 +172,8 @@ static const stai_network_info g_network_info = {
   .c_model_name = STAI_NETWORK_MODEL_NAME,
   .c_model_datetime = _STAI_NETWORK_DATETIME,
   .c_model_signature = 0x0,
-  .runtime_version = STAI_INIT_VERSION(10, 1, 0),
-  .tool_version = STAI_INIT_VERSION(2, 1, 0),
+  .runtime_version = STAI_INIT_VERSION(10, 2, 0),
+  .tool_version = STAI_INIT_VERSION(2, 2, 0),
   .api_version = STAI_INIT_VERSION(1, 0, 0),
   .n_macc = STAI_NETWORK_MACC_NUM,
   .n_nodes = STAI_NETWORK_NODES_NUM,
