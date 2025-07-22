@@ -107,6 +107,6 @@ namespace rl_tools::checkpoint::action {
 }
 
 namespace rl_tools::checkpoint::meta{
-   char name[] = "2023_10_25_15_52_51_d+o+a+r+h+c+f+w+e-_001_actor_000000003000000";
+   char name[] = "actor_best";
    char commit_hash[] = "e8c1d89b3cfb656d5b1563ec5483961bdfc29cee";
 }
