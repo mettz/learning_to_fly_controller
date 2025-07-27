@@ -9,7 +9,7 @@
 #include "debug.h"
 
 // #define RL_TOOLS_DISABLE_TEST
-#define RL_TOOLS_DISABLE_ACTION_HISTORY
+// #define RL_TOOLS_DISABLE_ACTION_HISTORY
 
 #define CONTROL_FREQUENCY_MULTIPLE 5
 #define ACTION_HISTORY_LENGTH 32
@@ -57,7 +57,7 @@ void rl_tools_init() {
   controller_tick = 0;
 }
 
-char *rl_tools_get_checkpoint_name() { return "isaaclie-onnx-runtime-rl_games"; }
+char *rl_tools_get_checkpoint_name() { return "works?"; }
 
 float rl_tools_test(float *output_mem) { return 0; }
 

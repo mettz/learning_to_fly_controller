@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    network.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    2025-07-22T13:12:21+0200
+  * @date    2025-07-27T19:31:16+0200
   * @brief   ST.AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -23,12 +23,12 @@
 
 /*****************************************************************************/
 /*  Original model name and signature  */
-#define STAI_NETWORK_ORIGIN_MODEL_NAME         "isaacflieonnxruntimerl_games"
-#define STAI_NETWORK_ORIGIN_MODEL_SIGNATURE    "0x08a255cfd94595eaf6c49618b7d03ded"
+#define STAI_NETWORK_ORIGIN_MODEL_NAME         "policy"
+#define STAI_NETWORK_ORIGIN_MODEL_SIGNATURE    "0x38742f8dfc25c9a1d97f5aff238511cc"
 
 /*  Generated model name and signature  */
 #define STAI_NETWORK_MODEL_NAME                "network"
-#define STAI_NETWORK_MODEL_SIGNATURE           (0x4353d101c4a2d1cd)
+#define STAI_NETWORK_MODEL_SIGNATURE           (0x5cdc6288baa76f94)
 
 
 /*****************************************************************************/
