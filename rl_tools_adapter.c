@@ -9,6 +9,7 @@
 #include "debug.h"
 
 // #define RL_TOOLS_DISABLE_TEST
+#define RL_TOOLS_DISABLE_ACTION_HISTORY
 
 #define CONTROL_FREQUENCY_MULTIPLE 5
 #define ACTION_HISTORY_LENGTH 32
@@ -45,11 +46,14 @@ void rl_tools_init() {
   stai_network_get_inputs(m_network, m_inputs, &_dummy);
   stai_network_get_outputs(m_network, m_outputs, &_dummy);
 
+#ifndef RL_TOOLS_DISABLE_ACTION_HISTORY
   for (unsigned long step_i = 0; step_i < ACTION_HISTORY_LENGTH; step_i++) {
     for (unsigned long action_i = 0; action_i < 4; action_i++) {
       action_history[step_i][action_i] = 0;
     }
   }
+#endif
+
   controller_tick = 0;
 }
 
@@ -103,11 +107,13 @@ void rl_tools_control(float *state, float *actions) {
   input[16] = state[11];
   input[17] = state[12];
 
+#ifndef RL_TOOLS_DISABLE_ACTION_HISTORY
   // 6. Add action history (starting from index 18)
   int offset = 18;
   for (int step = 0; step < ACTION_HISTORY_LENGTH; ++step)
     for (int j = 0; j < 4; ++j)
       input[offset++] = action_history[step][j];
+#endif
 
   stai_return_code ret = stai_network_run(m_network, STAI_MODE_SYNC);
   
@@ -116,6 +122,7 @@ void rl_tools_control(float *state, float *actions) {
     actions[i] = clipf(actions[i], -1.0f, 1.0f);
   }
 
+#ifndef RL_TOOLS_DISABLE_ACTION_HISTORY
   int substep = controller_tick % CONTROL_FREQUENCY_MULTIPLE;
   if (substep == 0) {
     for (unsigned long step_i = 0; step_i < ACTION_HISTORY_LENGTH - 1;
@@ -132,5 +139,6 @@ void rl_tools_control(float *state, float *actions) {
     value /= substep + 1;
     action_history[ACTION_HISTORY_LENGTH - 1][action_i] = value;
   }
+#endif
   controller_tick++;
 }
