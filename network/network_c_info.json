@@ -15,7 +15,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_actor_container_actor_container_0_Gemm_output_0_bias_array",
+      "name": "_actor_actor_mlp_actor_mlp_0_Gemm_output_0_bias_array",
       "nbits": 32,
       "offset_start": 37376,
       "qmn": {},
@@ -42,7 +42,7 @@
       "intq": {},
       "is_param": false,
       "mpool_id": 0,
-      "name": "_actor_actor_container_actor_container_0_Gemm_output_0_output_array",
+      "name": "_actor_actor_mlp_actor_mlp_0_Gemm_output_0_output_array",
       "nbits": 32,
       "offset_start": 584,
       "qmn": {},
@@ -69,7 +69,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_actor_container_actor_container_0_Gemm_output_0_weights_array",
+      "name": "_actor_actor_mlp_actor_mlp_0_Gemm_output_0_weights_array",
       "nbits": 32,
       "offset_start": 0,
       "qmn": {},
@@ -98,7 +98,7 @@
       "intq": {},
       "is_param": false,
       "mpool_id": 0,
-      "name": "_actor_actor_container_actor_container_1_Tanh_output_0_output_array",
+      "name": "_actor_actor_mlp_actor_mlp_1_Tanh_output_0_output_array",
       "nbits": 32,
       "offset_start": 0,
       "qmn": {},
@@ -125,7 +125,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_actor_container_actor_container_2_Gemm_output_0_bias_array",
+      "name": "_actor_actor_mlp_actor_mlp_2_Gemm_output_0_bias_array",
       "nbits": 32,
       "offset_start": 54016,
       "qmn": {},
@@ -152,7 +152,7 @@
       "intq": {},
       "is_param": false,
       "mpool_id": 0,
-      "name": "_actor_actor_container_actor_container_2_Gemm_output_0_output_array",
+      "name": "_actor_actor_mlp_actor_mlp_2_Gemm_output_0_output_array",
       "nbits": 32,
       "offset_start": 256,
       "qmn": {},
@@ -179,7 +179,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_actor_container_actor_container_2_Gemm_output_0_weights_array",
+      "name": "_actor_actor_mlp_actor_mlp_2_Gemm_output_0_weights_array",
       "nbits": 32,
       "offset_start": 37632,
       "qmn": {},
@@ -208,7 +208,7 @@
       "intq": {},
       "is_param": false,
       "mpool_id": 0,
-      "name": "_actor_actor_container_actor_container_3_Tanh_output_0_output_array",
+      "name": "_actor_actor_mlp_actor_mlp_3_Tanh_output_0_output_array",
       "nbits": 32,
       "offset_start": 0,
       "qmn": {},
@@ -235,7 +235,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_policy_layer_Gemm_output_0_bias_array",
+      "name": "_actor_mu_Gemm_output_0_bias_array",
       "nbits": 32,
       "offset_start": 55296,
       "qmn": {},
@@ -262,7 +262,7 @@
       "intq": {},
       "is_param": false,
       "mpool_id": 0,
-      "name": "_actor_policy_layer_Gemm_output_0_output_array",
+      "name": "_actor_mu_Gemm_output_0_output_array",
       "nbits": 32,
       "offset_start": 256,
       "qmn": {},
@@ -289,7 +289,7 @@
       "intq": {},
       "is_param": true,
       "mpool_id": 1,
-      "name": "_actor_policy_layer_Gemm_output_0_weights_array",
+      "name": "_actor_mu_Gemm_output_0_weights_array",
       "nbits": 32,
       "offset_start": 54272,
       "qmn": {},
@@ -360,42 +360,42 @@
   ],
   "environment": {
     "generated_model": {
-      "generated_time": "2025-07-27T19:31:16+0200",
+      "generated_time": "2025-08-02T16:22:10+0200",
       "model_files": [
         {
           "name": "network_data.h",
-          "signature": "0x112b9e908ee3bbb20ec634719794c4f1"
+          "signature": "0x848fdd9723f50c8571fd0eba2843879c"
         },
         {
           "name": "network_data.c",
-          "signature": "0x7a43b1a830ca9daa08fee2fdc88494b4"
+          "signature": "0x5b13553ea4a7afd00f4968fbf3e02283"
         },
         {
           "name": "network.h",
-          "signature": "0xc7f35a473c8e2f09684dae58e6436002"
+          "signature": "0xe18941e2d41180d50ae33fa72ecb6ddd"
         },
         {
           "name": "network.c",
-          "signature": "0x505e936c5b6ad67245ff33847b23e5f1"
+          "signature": "0x82cbb2c8c023ecb01246f9bee5129f6c"
         },
         {
           "name": "network_details.h",
-          "signature": "0xfd1773869cf1fd0e535c8b2da81ed0be"
+          "signature": "0x52ada04eba9d147d942d28f14f18eade"
         }
       ],
       "name": "network"
     },
-    "network_signature": "0x5cdc6288baa76f94",
+    "network_signature": "0x971308e796f1ef4b",
     "test_name": "",
     "tools": [
       {
-        "arguments": "generate -m ./logs/skrl/quadcopter_direct/2025-07-27_19-24-23_ppo_torch/checkpoints/exported/policy.onnx -o ../l2f-controller/network/ --target stm32f4 --c-api st-ai --no-workspace",
+        "arguments": "generate -m logs/rl_games/quadcopter_direct/2025-08-02_16-13-52/nn/exported/policy.onnx -o ../l2f-controller/network --target stm32f4 --c-api st-ai --no-workspace",
         "environment": [],
         "input_model": {
           "model_files": [
             {
               "name": "policy.onnx",
-              "signature": "0x38742f8dfc25c9a1d97f5aff238511cc"
+              "signature": "0xb2ea751398fb4ff40becb9283da6827b"
             }
           ],
           "n_params": 13828,
@@ -502,7 +502,7 @@
           ],
           "macc": 9408,
           "mapping": "NODE_SW",
-          "name": "_actor_actor_container_actor_container_0_Gemm_output_0",
+          "name": "_actor_actor_mlp_actor_mlp_0_Gemm_output_0",
           "original_nodes": [
             "1"
           ],
@@ -526,7 +526,7 @@
           ],
           "macc": 640,
           "mapping": "NODE_SW",
-          "name": "_actor_actor_container_actor_container_1_Tanh_output_0",
+          "name": "_actor_actor_mlp_actor_mlp_1_Tanh_output_0",
           "original_nodes": [
             "2"
           ],
@@ -553,7 +553,7 @@
           ],
           "macc": 4160,
           "mapping": "NODE_SW",
-          "name": "_actor_actor_container_actor_container_2_Gemm_output_0",
+          "name": "_actor_actor_mlp_actor_mlp_2_Gemm_output_0",
           "original_nodes": [
             "3"
           ],
@@ -577,7 +577,7 @@
           ],
           "macc": 640,
           "mapping": "NODE_SW",
-          "name": "_actor_actor_container_actor_container_3_Tanh_output_0",
+          "name": "_actor_actor_mlp_actor_mlp_3_Tanh_output_0",
           "original_nodes": [
             "4"
           ],
@@ -604,7 +604,7 @@
           ],
           "macc": 260,
           "mapping": "NODE_SW",
-          "name": "_actor_policy_layer_Gemm_output_0",
+          "name": "_actor_mu_Gemm_output_0",
           "original_nodes": [
             "5"
           ],
