@@ -670,6 +670,13 @@ LOG_ADD(LOG_UINT16, m3, &motor_cmd[2])
 LOG_ADD(LOG_UINT16, m4, &motor_cmd[3])
 LOG_GROUP_STOP(rltm)
 
+LOG_GROUP_START(rlta)
+LOG_ADD(LOG_FLOAT, a1, &action_output[0])
+LOG_ADD(LOG_FLOAT, a2, &action_output[1])
+LOG_ADD(LOG_FLOAT, a3, &action_output[2])
+LOG_ADD(LOG_FLOAT, a4, &action_output[3])
+LOG_GROUP_STOP(rlta)
+
 LOG_GROUP_START(rltrp)
 LOG_ADD(LOG_FLOAT, x, &relative_pos[0])
 LOG_ADD(LOG_FLOAT, y, &relative_pos[1])
