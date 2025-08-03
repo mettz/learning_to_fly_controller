@@ -209,7 +209,7 @@ void controllerOutOfTreeInit(void){
   timestamp_last_reset = usecTimestamp();
   prev_set_motors = false;
   prev_pre_set_motors = false;
-  use_pre_set_warmup = 0;
+  use_pre_set_warmup = 1;
   timestamp_last_control_packet_received = 0;
   timestamp_last_control_packet_received_hover = 0;
   timestamp_last_behind_schedule_message = 0;
@@ -234,7 +234,7 @@ void controllerOutOfTreeInit(void){
   velocity_cmd_multiplier = 1;
   velocity_cmd_p_term = 0.0;
 
-  target_height = 0.3;
+  target_height = 0.5;
   target_height_figure_eight = 0.0;
 
   // mode = NORMAL;
