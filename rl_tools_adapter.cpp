@@ -9,7 +9,7 @@
 #include "data/actor_best.h"
 
 #define RL_TOOLS_CONTROL_STATE_ROTATION_MATRIX
-// #define RL_TOOLS_DISABLE_TEST
+#define RL_TOOLS_DISABLE_TEST
 #define RL_TOOLS_ACTION_HISTORY
 
 
