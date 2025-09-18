@@ -49,10 +49,10 @@ def mode_hover_original(cf, args):
         send_hover_packet(cf, args.height)
 
 def mode_hover_learned(cf, args):
-    set_param(cf, "rlt.trigger", 0) # setting the trigger mode to the custom command (cf. https://github.com/arplaboratory/learning_to_fly_controller/blob/0a7680de591d85813f1cd27834b240aeac962fdd/rl_tools_controller.c#L80)
-    set_param(cf, "rlt.wn", 1)
-    set_param(cf, "rlt.motor_warmup", 1)
-    set_param(cf, "rlt.target_z", args.height)
+    # set_param(cf, "rlt.trigger", 0) # setting the trigger mode to the custom command (cf. https://github.com/arplaboratory/learning_to_fly_controller/blob/0a7680de591d85813f1cd27834b240aeac962fdd/rl_tools_controller.c#L80)
+    # set_param(cf, "rlt.wn", 1)
+    # set_param(cf, "rlt.motor_warmup", 1)
+    # set_param(cf, "rlt.target_z", args.height)
     input("Press enter to start hovering")
     prev = time.time()
     acc = 0
@@ -172,9 +172,7 @@ if __name__ == '__main__':
     cf.console.receivedChar.add_callback(console_callback)
 
     with SyncCrazyflie(uri, cf=cf) as scf:
-        time.sleep(5.0)
         scf.cf.platform.send_arming_request(True)
-        time.sleep(1.0)
 
         if args.mode == "hover_learned":
             mode_hover_learned(scf.cf, args)

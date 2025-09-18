@@ -234,7 +234,7 @@ void controllerOutOfTreeInit(void){
   velocity_cmd_multiplier = 1;
   velocity_cmd_p_term = 0.0;
 
-  target_height = 0.5;
+  target_height = 0.3;
   target_height_figure_eight = 0.0;
 
   // mode = NORMAL;
