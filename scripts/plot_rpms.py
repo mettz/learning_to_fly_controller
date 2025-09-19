@@ -30,7 +30,7 @@ def main():
     ax.plot(t, m[:,1], label='m2')
     ax.plot(t, m[:,2], label='m3')
     ax.plot(t, m[:,3], label='m4')
-    ax.set_xlim(5, 35)
+    # ax.set_xlim(5, 35)
     ax.set_ylim(0, 70000)
     ax.set_xlabel('time [s]')
     ax.set_ylabel('motor RPM')
@@ -51,7 +51,7 @@ def main():
         rolling_mean = np.convolve(m[:, i], kernel, mode='valid')
         ax.plot(t[window_size-1:], rolling_mean, label=f'mean_m{i+1}')
 
-    ax.set_xlim(5, 35)
+    # ax.set_xlim(5, 35)
     ax.set_ylim(0, 70000)
     ax.set_xlabel('time [s]')
     ax.set_ylabel('motor RPM')
