@@ -42,6 +42,11 @@ def main():
     # ---------- show ----------
     plt.show()
 
+    # ---------- save ----------
+    out_file = f"{run_name}_motors.png"
+    fig.savefig(out_file, bbox_inches='tight', dpi=300)
+    print(f"Saved plot as: {out_file}")
+
     window_size = 50  # number of samples in the sliding window
     kernel = np.ones(window_size) / window_size
 
@@ -64,7 +69,7 @@ def main():
     plt.show()
 
     # ---------- save ----------
-    out_file = f"{run_name}_motors.png"
+    out_file = f"{run_name}_motors_mean.png"
     fig.savefig(out_file, bbox_inches='tight', dpi=300)
     print(f"Saved plot as: {out_file}")
 
