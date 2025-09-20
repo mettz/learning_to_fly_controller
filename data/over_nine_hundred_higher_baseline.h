@@ -3613,6 +3613,6 @@ using MODEL = model_definition::MODEL;
 const MODEL model = {layer_0::layer, {layer_1::layer, {layer_2::layer}}};
 } // namespace rl_tools::checkpoint::actor
 namespace rl_tools::checkpoint::meta {
-char name[] = "policy";
+char name[] = "over_nine_hundred_higher_baseline";
 char commit_hash[] = "c055ac9864fbed4334ad2a2bd5a378d17b5d2cca";
 } // namespace rl_tools::checkpoint::meta

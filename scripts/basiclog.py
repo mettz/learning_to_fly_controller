@@ -14,7 +14,7 @@ from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.utils import uri_helper
 from cflib.crtp.crtpstack import CRTPPacket, CRTPPort
-from cflib.crazyflie.commander import META_COMMAND_CHANNEL
+from cflib.crazyflie.commander import META_COMMAND_CHANNEL, SET_SETPOINT_CHANNEL, TYPE_HOVER
 
 # Only output errors from the logging framework
 logging.basicConfig(level=logging.ERROR)
@@ -63,6 +63,7 @@ class LoggingExample:
         self._timeout = timeout
         self.is_connected = True
         self._killed = False
+        self._trajectory_tracking = False
 
     def _connected(self, link_uri):
         """ This callback is called form the Crazyflie API when a Crazyflie
@@ -198,6 +199,24 @@ class LoggingExample:
         self.is_connected = False
         self._close_log()
 
+    def _set_param(self, name, target):
+        time.sleep(1.0)
+        while abs(float(self._cf.param.get_value(name)) - float(target)) > 1e-5:
+            time.sleep(1.0)
+            self._cf.param.set_value(name, target)
+            time.sleep(1.0)
+        time.sleep(1.0)
+        print(f"Parameter {name} is {self._cf.param.get_value(name)} now")
+
+    def set_mode_trajectory_tracking(self, args):
+        self._trajectory_tracking = True
+        self._set_param("rlt.trigger", 0) # setting the trigger mode to the custom command  (cf. https://github.com/arplaboratory/learning_to_fly_controller/blob/0a7680de591d85813f1cd27834b240aeac962fdd/rl_tools_controller.c#L80)
+        self._set_param("rlt.motor_warmup", 0)
+        self._set_param("rlt.wn", 4)
+        self._set_param("rlt.fei", args.trajectory_interval)
+        self._set_param("rlt.fes", args.trajectory_scale)
+        self._set_param("rlt.target_z", args.height)
+
     def fly(self):
         if self._timeout is not None:
             print(f"Flying for {self._timeout} seconds")
@@ -208,6 +227,7 @@ class LoggingExample:
         prev = time.time()
         acc = 0
         cnt = 0
+        start_time = time.time()
 
         while not self._killed:
             current = time.time()
@@ -217,8 +237,20 @@ class LoggingExample:
                 print(f"Average rate: {1/(acc / cnt):.3f}Hz")
                 acc = 0
                 cnt = 0
-            prev = current
-            self._send_learned_policy_packet()
+
+            if self._trajectory_tracking:
+                now = time.time()
+                if current - prev > 0.1:
+                    start_time = now
+                prev = current
+
+                if now - start_time < args.transition_timeout:
+                    self._send_hover_packet(args.height)
+                else:
+                    self._send_learned_policy_packet()
+            else:
+                prev = current
+                self._send_learned_policy_packet()
 
         try:
             self._lg_stab.stop()
@@ -234,6 +266,13 @@ class LoggingExample:
         pk.port = CRTPPort.COMMANDER_GENERIC
         pk.channel = META_COMMAND_CHANNEL
         pk.data = struct.pack('<B', 1)
+        self._cf.send_packet(pk)
+
+    def _send_hover_packet(self, height, vx=0, vy=0, yawrate=0):
+        pk = CRTPPacket()
+        pk.port = CRTPPort.COMMANDER_GENERIC
+        pk.channel = SET_SETPOINT_CHANNEL
+        pk.data = struct.pack('<Bffff', TYPE_HOVER, vx, vy, yawrate, height)
         self._cf.send_packet(pk)
 
 if __name__ == '__main__':
@@ -264,6 +303,9 @@ if __name__ == '__main__':
 
     signal.signal(signal.SIGINT, _stop_on_signal)
     signal.signal(signal.SIGTERM, _stop_on_signal)
+
+    if args.mode == "trajectory_tracking":
+        le.set_mode_trajectory_tracking(args)
 
     input("Press enter to start hovering")
     le.fly()
