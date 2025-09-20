@@ -6,7 +6,7 @@
 #include <rl_tools/nn/layers/dense/operations_arm/dsp.h>
 #include <rl_tools/nn_models/sequential/operations_generic.h>
 
-#include "data/longer.h"
+#include "data/96_rollouts.h"
 
 #define RL_TOOLS_CONTROL_STATE_ROTATION_MATRIX
 #define RL_TOOLS_DISABLE_TEST
