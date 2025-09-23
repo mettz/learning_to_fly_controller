@@ -11,5 +11,6 @@ ablation_data*
 .venv
 .direnv
 *.log
+!experiments/**/*.log
 logs/*
 **/__pycache__
