@@ -1,0 +1,188 @@
+SYS: ----------------------------
+SYS: Crazyflie 2.1 is up and running!
+SYS: Build 141:30946a33ec8f (2025.02 +141) CLEAN
+SYS: I am 0x373732373433510D003B0047 and I have 1024KB of flash!
+CFGBLK: v1, verification [OK]
+DECK_CORE: 1 deck(s) found
+DECK_CORE: Calling INIT on driver bcFlow2 for deck 0
+ZR2: Z-down sensor [OK]
+PMW: Motion chip id: 0x49:0xB6
+IMU: BMI088: Using I2C interface.
+IMU: BMI088 Gyro connection [OK].
+IMU: BMI088 Accel connection [OK]
+IMU: BMP388 I2C connection [OK]
+ESTIMATOR: Using Kalman (2) estimator
+CONTROLLER: Controller type forced
+BackpropTools controller init! Checkpoint: policy_96_rollouts_seed7
+CONTROLLER: Using OutOfTree (6) controller
+MTR-DRV: Using brushed motor driver
+SYS: About to run tests in system.c.
+SYS: NRF51 version: 2025.02 (CF21)
+EEPROM: I2C connection [OK].
+STORAGE: Storage check [OK].
+IMU: BMI088 gyro self-test [OK]
+BackpropTools controller test, abs diff: 0.0
+BackpropTools controller: Test action 0: 0.0
+BackpropTools controller: Test action 1: 0.0
+BackpropTools controller: Test action 2: 0.0
+BackpropTools controller: Test action 3: 0.0
+DECK_CORE: Deck 0 test [OK].
+SYS: Self test passed!
+STAB: Wait for sensor calibration...
+SYS: Free heap: 15048 bytes
+STAB: Starting stabilizer loop
+ESTKALMAN: State out of bounds, reseLearned Controller is behind schedule: 7841095us/2000us
+tting
+action_output[0]: 0.630506
+action_output[1]: 0.853452
+action_output[2]: 0.713227
+action_output[3]: 0.688206
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.579552
+action_output[1]: 0.831258
+action_output[2]: 0.718212
+action_output[3]: 0.728408
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.614381
+action_output[1]: 0.845359
+action_output[2]: 0.685254
+action_output[3]: 0.712771
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Controller activated
+POSITION mode
+action_output[0]: 0.503109
+action_output[1]: 0.616809
+action_output[2]: 0.496176
+action_output[3]: 0.521970
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+control invocation interval 997.434021
+action_output[0]: 0.549576
+action_output[1]: 0.625946
+action_output[2]: 0.606514
+action_output[3]: 0.576161
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.612731
+action_output[1]: 0.722906
+action_output[2]: 0.695455
+action_output[3]: 0.514929
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.587081
+action_output[1]: 0.680156
+action_output[2]: 0.675339
+action_output[3]: 0.586105
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.521266
+action_output[1]: 0.666493
+action_output[2]: 0.677762
+action_output[3]: 0.608541
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.587928
+action_output[1]: 0.688071
+action_output[2]: 0.669094
+action_output[3]: 0.591289
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+control invocation interval 996.957580
+rl_tools_control took 747us
+action_output[0]: 0.566556
+action_output[1]: 0.634852
+action_output[2]: 0.636882
+action_output[3]: 0.504860
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.578794
+action_output[1]: 0.699973
+action_output[2]: 0.694000
+action_output[3]: 0.598706
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.567143
+action_output[1]: 0.704007
+action_output[2]: 0.676434
+action_output[3]: 0.630084
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.593263
+action_output[1]: 0.699948
+action_output[2]: 0.645686
+action_output[3]: 0.568819
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+action_output[0]: 0.644176
+action_output[1]: 0.689249
+action_output[2]: 0.689236
+action_output[3]: 0.572531
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+control invocation interval 997.250488
+action_output[0]: 0.626161
+action_output[1]: 0.666798
+action_output[2]: 0.685965
+action_output[3]: 0.574196
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0
+Last setpoint: x disposition/mode 0.0/0.0/0
+Last setpoint: y disposition/mode 0.0/0.0/0
+Last setpoint: z disposition/mode 0.0/0.0/0

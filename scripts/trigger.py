@@ -49,10 +49,10 @@ def mode_hover_original(cf, args):
         send_hover_packet(cf, args.height)
 
 def mode_hover_learned(cf, args):
-    # set_param(cf, "rlt.trigger", 0) # setting the trigger mode to the custom command (cf. https://github.com/arplaboratory/learning_to_fly_controller/blob/0a7680de591d85813f1cd27834b240aeac962fdd/rl_tools_controller.c#L80)
-    # set_param(cf, "rlt.wn", 1)
-    # set_param(cf, "rlt.motor_warmup", 1)
-    # set_param(cf, "rlt.target_z", args.height)
+    set_param(cf, "rlt.trigger", 0) # setting the trigger mode to the custom command (cf. https://github.com/arplaboratory/learning_to_fly_controller/blob/0a7680de591d85813f1cd27834b240aeac962fdd/rl_tools_controller.c#L80)
+    set_param(cf, "rlt.wn", 1)
+    set_param(cf, "rlt.motor_warmup", 1)
+    set_param(cf, "rlt.target_z", args.height)
     input("Press enter to start hovering")
     prev = time.time()
     acc = 0
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     default_uri = 'radio://0/88/2M/E7E7E7E7EF'
     parser.add_argument('--uri', default=default_uri)
     parser.add_argument('--height', default=0.5, type=float)
-    parser.add_argument('--mode', default='hover_original', choices=['hover_learned', 'hover_original', 'takeoff_and_switch', 'trajectory_tracking'])
+    parser.add_argument('--mode', default='hover_learned', choices=['hover_learned', 'hover_original', 'takeoff_and_switch', 'trajectory_tracking'])
     parser.add_argument('--trajectory-scale', default=0.3, type=float, help="Scale of the trajectory")
     parser.add_argument('--trajectory-interval', default=5.5, type=float, help="Interval of the trajectory")
     parser.add_argument('--transition-timeout', default=3, type=float, help="Time after takeoff with the original controller after which the learned controller is used for trajectory tracking")
