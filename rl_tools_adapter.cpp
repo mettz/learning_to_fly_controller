@@ -6,7 +6,7 @@
 #include <rl_tools/nn/layers/dense/operations_arm/dsp.h>
 #include <rl_tools/nn_models/sequential/operations_generic.h>
 
-#include "experiments/96_rollouts/hover/seed4/train/checkpoints/exported/policy.h"
+#include "policies/l2f_action_history_delay_3M.h"
 
 #define RL_TOOLS_CONTROL_STATE_ROTATION_MATRIX
 #define RL_TOOLS_DISABLE_TEST
